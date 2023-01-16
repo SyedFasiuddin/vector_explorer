@@ -11,4 +11,10 @@ fn main() {
 
     let len: usize = v.len();
     println!("{len}"); // 2
+
+    v.push(3);
+    v.push(4);
+    for i in &v { // i: &i32
+        println!("{i}");
+    }
 }
