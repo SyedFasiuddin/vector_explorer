@@ -17,4 +17,10 @@ fn main() {
     for i in &v { // i: &i32
         println!("{i}");
     }
+
+    let last_elem: Option<&i32> = v.last();
+    match last_elem {
+        Some(x) => println!("Last element is: {x}"),
+        None => println!("Empty vector")
+    }
 }
