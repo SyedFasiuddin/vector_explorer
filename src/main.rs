@@ -8,4 +8,7 @@ fn main() {
         Some(x) => println!("Last element is: {x}"),
         None => println!("cannot pop")
     }
+
+    let len: usize = v.len();
+    println!("{len}"); // 2
 }
