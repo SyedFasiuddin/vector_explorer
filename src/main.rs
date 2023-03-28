@@ -23,4 +23,7 @@ fn main() {
         Some(x) => println!("Last element is: {x}"),
         None => println!("Empty vector")
     }
+
+    let it: std::slice::Iter<i32> = v.iter();
+    println!("{:?}", it);
 }
