@@ -196,4 +196,14 @@ mod tests {
         assert!(v.capacity() >= 5);
     }
 
+    #[test]
+    fn empty_the_vec() {
+        let mut v = vec![1, 2, 3, 4, 5];
+        v.clear();
+
+        assert_eq!(Vec::<i32>::new(), v);
+        assert!(v.is_empty());
+        assert!(v.capacity() >= 5);
+    }
+
 }
