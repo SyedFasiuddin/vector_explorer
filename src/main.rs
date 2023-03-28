@@ -47,4 +47,31 @@ mod tests {
         assert_eq!([1, 2, 3].to_vec(), v);
     }
 
+    #[test]
+    fn insert_into_vector() {
+        let mut v = Vec::new();
+
+        // untill something is being pushed into the vector the compiler doesn't know what
+        // type of elements will be stores inside vector `v` so it will complain saying to add
+        // a type errno E0282
+        v.push(1);
+
+ // 1  error[E0282]: type annotations needed for `Vec<T>`
+ //   --> src/main.rs:52:13
+ //    |
+ // 52 |         let mut v = Vec::new();
+ //    |             ^^^^^
+ //    |
+ // help: consider giving `v` an explicit type, where the type for type parameter `T` is specified
+ //    |
+ // 52 |         let mut v: Vec<T> = Vec::new();
+ //    |                  ++++++++
+ //
+ // For more information about this error, try `rustc --explain E0282`.
+ // error: could not compile `vector_explorer` due to previous error
+
+        v.push(10);
+        assert_eq!(vec![1, 10], v);
+    }
+
 }
