@@ -206,4 +206,15 @@ mod tests {
         assert!(v.capacity() >= 5);
     }
 
+    #[test]
+    fn reduce_vec_len_by_dropping_elems() {
+        let mut v = vec![1, 2, 3, 4, 5];
+
+        v.truncate(3);
+        assert_eq!(vec![1, 2, 3], v);
+
+        // if number more than `len` is given then it has no effect
+        // if `0` is given then it is same as clear
+    }
+
 }
