@@ -163,4 +163,15 @@ mod tests {
         // `reserve` allocates a bit more just so that it can avoide allocating the next time.
     }
 
+    #[test]
+    fn safe_reserve_capacity() {
+        let mut v: Vec<i32> = Vec::new();
+        let _ = v.try_reserve(10);
+        assert!(v.capacity() >= 10);
+
+        // `reserve` and `reserve_exact` panics if they were unable to allocate enough capacity
+        // `try_reserve` returns a result and avoids panicing
+        // `try_reserve_exact` is another variant
+    }
+
 }
