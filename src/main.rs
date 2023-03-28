@@ -125,4 +125,19 @@ mod tests {
         assert_eq!(v.len(), 3);
     }
 
+    #[test]
+    fn check_if_vec_is_empty() {
+        let mut v: Vec<i32> = Vec::new();
+        // since not inseting any elements we get error E0282
+        // refer test `insert_into_vector`
+        assert_eq!(v.is_empty(), true);
+
+        v.push(1);
+        assert_eq!(v.is_empty(), false);
+
+        // in C++ we do something like
+        // v.size() > 0
+        // we can do it here as well but clippy will correct us
+    }
+
 }
