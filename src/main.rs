@@ -119,4 +119,10 @@ mod tests {
         assert_eq!(v2, vec![]); // everything is moved out
     }
 
+    #[test]
+    fn get_len_of_vec() {
+        let v = vec![1, 2, 3];
+        assert_eq!(v.len(), 3);
+    }
+
 }
