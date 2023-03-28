@@ -86,4 +86,14 @@ mod tests {
         assert_eq!(v, Vec::new());
     }
 
+    #[test]
+    fn remove_element_from_any_position() {
+        let mut v = vec![1, 2, 3, 4, 5];
+
+        // this is o(n) operation, as everything on right will be shifted
+        assert_eq!(v.remove(2), 3); // remove will panic if index (argument) is out of bound
+        assert_eq!(v.len(), 4);
+        assert_eq!(vec![1, 2, 4, 5], v);
+    }
+
 }
