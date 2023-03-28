@@ -96,4 +96,17 @@ mod tests {
         assert_eq!(vec![1, 2, 4, 5], v);
     }
 
+    #[test]
+    fn insert_element_at_any_position() {
+        let mut v = vec![1, 2, 3, 4, 5];
+
+        // will panic if idx > len
+        v.insert(1, 10); // idx, val
+        assert_eq!(vec![1, 10, 2, 3, 4, 5], v);
+
+        // I assume that this operation also takes o(n) time, as everything is shifted to make
+        // place for the element, if under the hood linked lists are used then may be not.
+        // Howevery time complexity is not mentioned in the docs
+    }
+
 }
