@@ -230,4 +230,21 @@ mod tests {
         assert_eq!(vec![1, 2, 3, 4, 5], v);
     }
 
+    #[test]
+    fn change_size_with_closure() {
+        let mut v = vec![1, 2, 3, 4, 5];
+
+        v.resize_with(10, Default::default);
+        assert_eq!(vec![1, 2, 3, 4, 5, 0, 0, 0, 0, 0], v);
+
+        v.truncate(5);
+        v.resize_with(10, || { 0 });
+        assert_eq!(vec![1, 2, 3, 4, 5, 0, 0, 0, 0, 0], v);
+
+        let mut i = 1;
+        v.clear();
+        v.resize_with(10, || { i *= 2; i });
+        assert_eq!(vec![2, 4, 8, 16, 32, 64, 128, 256, 512, 1024], v);
+    }
+
 }
