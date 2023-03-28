@@ -185,4 +185,15 @@ mod tests {
         assert!(v.capacity() >= 3);
     }
 
+    #[test]
+    fn reduce_capacity_of_vec_min_to() {
+        let mut v = vec![1, 2, 3];
+        v.reserve(100);
+        assert!(v.capacity() >= 100);
+
+        v.shrink_to(5);
+        assert!(v.capacity() <= 100);
+        assert!(v.capacity() >= 5);
+    }
+
 }
