@@ -217,4 +217,17 @@ mod tests {
         // if `0` is given then it is same as clear
     }
 
+    #[test]
+    fn change_size_of_vec() {
+        let mut v = vec![1, 2, 3, 4, 5];
+        // T must implement `Clone`
+
+        v.resize(10, 10); // len, value
+        assert_eq!(vec![1, 2, 3, 4, 5, 10, 10, 10, 10, 10], v);
+
+        // if len < v.len() then it acts as truncate and value has no meaning
+        v.resize(5, 9);
+        assert_eq!(vec![1, 2, 3, 4, 5], v);
+    }
+
 }
