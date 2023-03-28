@@ -63,6 +63,16 @@ mod tests {
     }
 
     #[test]
+    fn new_empty_vec_with_some_capacity() {
+        let v: Vec<i32> = Vec::with_capacity(10);
+        // will panic if capacity exceeds isize::MAX
+
+        assert_eq!(v.len(), 0);
+        assert!(v.is_empty());
+        assert!(v.capacity() >= 10);
+    }
+
+    #[test]
     fn insert_into_vector() {
         let mut v = Vec::new();
 
