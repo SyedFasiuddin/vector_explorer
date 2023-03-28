@@ -140,4 +140,16 @@ mod tests {
         // we can do it here as well but clippy will correct us
     }
 
+    #[test]
+    fn get_capacity_of_vec() {
+        let mut v = vec![1, 2, 3];
+        assert_eq!(v.capacity(), 3);
+
+        v.pop();
+        v.pop();
+        v.pop();
+        assert_eq!(v.capacity(), 3);
+        assert_eq!(v.is_empty(), true);
+    }
+
 }
