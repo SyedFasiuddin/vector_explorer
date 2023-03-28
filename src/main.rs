@@ -27,3 +27,24 @@ fn main() {
     let it: std::slice::Iter<i32> = v.iter();
     println!("{:?}", it);
 }
+
+#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn new_vec_with_macro() {
+        let v = vec![1, 2, 3];
+        assert_eq!([1, 2, 3].to_vec(), v);
+    }
+
+    #[test]
+    fn new_vec() {
+        let mut v = Vec::new();
+        v.push(1);
+        v.push(2);
+        v.push(3);
+        assert_eq!(vec![1, 2, 3], v);
+        assert_eq!([1, 2, 3].to_vec(), v);
+    }
+
+}
