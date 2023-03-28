@@ -281,4 +281,17 @@ mod tests {
         // can't understand how it is useful
     }
 
+    #[test]
+    fn cut_vec_into_two_parts() {
+        let mut v = vec![1, 2, 3, 4, 5];
+        assert_eq!(v.split_off(2), [3, 4, 5]);
+        assert_eq!(v, [1, 2]);
+
+        // any within bound index can be provided
+        // returned [idx, len)
+        // original [0, idx)
+        // will panic if idx > len
+        // Vec implements Deref which has a lot more of split_**
+    }
+
 }
