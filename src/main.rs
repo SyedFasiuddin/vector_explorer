@@ -174,4 +174,15 @@ mod tests {
         // `try_reserve_exact` is another variant
     }
 
+    #[test]
+    fn reduce_capacity_of_vec() {
+        let mut v = vec![1, 2, 3];
+        v.reserve(100);
+        assert!(v.capacity() >= 100);
+
+        v.shrink_to_fit();
+        assert!(v.capacity() <= 100);
+        assert!(v.capacity() >= 3);
+    }
+
 }
