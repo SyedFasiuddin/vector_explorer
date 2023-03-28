@@ -152,4 +152,15 @@ mod tests {
         assert_eq!(v.is_empty(), true);
     }
 
+    #[test]
+    fn reserve_capacity() {
+        let mut v: Vec<i32> = Vec::new();
+        v.reserve(10);
+        assert!(v.capacity() >= 10);
+
+        // `reserve_exact` is a varient which reserves exact (cannot guarentee exact size due to
+        // underlying OS, page size, allocator rounding things off etc.)
+        // `reserve` allocates a bit more just so that it can avoide allocating the next time.
+    }
+
 }
