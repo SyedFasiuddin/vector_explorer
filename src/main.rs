@@ -74,4 +74,16 @@ mod tests {
         assert_eq!(vec![1, 10], v);
     }
 
+    #[test]
+    fn remove_last_element_from_vec() {
+        let mut v = vec![10, 20, 30];
+
+        assert_eq!(v.pop(), Some(30));
+        assert_eq!(vec![10, 20], v);
+
+        v.pop();
+        v.pop();
+        assert_eq!(v, Vec::new());
+    }
+
 }
