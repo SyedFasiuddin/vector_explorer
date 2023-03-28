@@ -272,4 +272,13 @@ mod tests {
         assert_eq!(vec![2, 4, 8, 16, 32, 64, 128, 256, 512, 1024], v);
     }
 
+    #[test]
+    fn slice_from_vec() {
+        let v = vec![1, 2, 3, 4, 5];
+
+        assert_eq!(v.as_slice(), &v[..]);
+        assert_eq!(v.as_slice(), vec![1, 2, 3, 4, 5]);
+        // can't understand how it is useful
+    }
+
 }
