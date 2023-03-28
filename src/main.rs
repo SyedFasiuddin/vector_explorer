@@ -109,4 +109,14 @@ mod tests {
         // Howevery time complexity is not mentioned in the docs
     }
 
+    #[test]
+    fn concatenate_two_vec() {
+        let mut v1 = vec![1, 2, 3];
+        let mut v2 = vec![4, 5, 6];
+        v1.append(&mut v2);
+
+        assert_eq!(v1, vec![1, 2, 3, 4, 5, 6]); // everything from other vector is moved in
+        assert_eq!(v2, vec![]); // everything is moved out
+    }
+
 }
