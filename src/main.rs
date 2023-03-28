@@ -48,6 +48,21 @@ mod tests {
     }
 
     #[test]
+    fn new_empty_vec_with_0_capacity() {
+        let v1: Vec<i32> = Vec::new();
+        let v2: Vec<i32> = vec![];
+
+        assert_eq!(v1.len(), 0);
+        assert_eq!(v2.len(), 0);
+
+        assert!(v1.is_empty());
+        assert!(v2.is_empty());
+
+        assert!(v1.capacity() == 0);
+        assert!(v2.capacity() == 0);
+    }
+
+    #[test]
     fn insert_into_vector() {
         let mut v = Vec::new();
 
